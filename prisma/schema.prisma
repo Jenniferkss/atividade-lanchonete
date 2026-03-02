@@ -25,3 +25,13 @@ model Produto {
 
     @@map("produtos")
 }
+
+model itemPedido {
+    id         Int       @id @default(autoincrement())
+    produtoId  Int     
+    quantidade Int
+    preco      Decimal   @db.Decimal(10, 2)
+    pedidoId   Int
+
+    @@map("itens_pedido")
+}
