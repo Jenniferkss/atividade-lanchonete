@@ -27,28 +27,27 @@ model Produto {
 }
 
 model itemPedido {
-    id         Int       @id @default(autoincrement())
-    produtoId  Int     
+    id         Int     @id @default(autoincrement())
+    produtoId  Int
     quantidade Int
-    preco      Decimal   @db.Decimal(10, 2)
+    preco      Decimal @db.Decimal(10, 2)
     pedidoId   Int
 
     @@map("itens_pedido")
 }
 
 model Cliente {
-  id         Int      @id @default(autoincrement())
-  nome       String   @db.VarChar(100)
-  telefone   String?
-  email      String?  @unique
-  cpf        String?  @unique
-  cep        String?
-  logradouro String?
-  bairro     String?
-  localidade String?
-  uf         String?
-  ativo      Boolean  @default(true)
-  pedidos    Pedido[]
+    id         Int     @id @default(autoincrement())
+    nome       String  @db.VarChar(100)
+    telefone   String?
+    email      String? @unique
+    cpf        String? @unique
+    cep        String?
+    logradouro String?
+    bairro     String?
+    localidade String?
+    uf         String?
+    ativo      Boolean @default(true)
 
-  @@map("clientes")
+    @@map("clientes")
 }

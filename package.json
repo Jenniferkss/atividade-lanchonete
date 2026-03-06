@@ -12,15 +12,23 @@
   "author": "Jennifer",
   "license": "MIT",
   "dependencies": {
-    "@prisma/adapter-pg": "^7.3.0",
-    "@prisma/client": "^7.3.0",
+    "@prisma/adapter-pg": "^7.4.2",
+    "@prisma/client": "^7.4.2",
     "axios": "^1.13.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "pg": "^8.19.0"
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14",
-    "prisma": "^7.3.0"
-  }
+    "prisma": "^7.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jenniferkss/atividade-lanchonete.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jenniferkss/atividade-lanchonete/issues"
+  },
+  "homepage": "https://github.com/Jenniferkss/atividade-lanchonete#readme"
 }

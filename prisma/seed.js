@@ -40,7 +40,50 @@ const produtos = [
         preco: 12.0,
     },
 ];
-
+const itens_pedido = [
+    {
+        pedido_id: 1,
+        produto_id: 1, // X-Burger Artesanal
+        quantidade: 2,
+        preco_unitario: 35.9,
+    },
+    {
+        pedido_id: 1,
+        produto_id: 2, // Coca-Cola
+        quantidade: 2,
+        preco_unitario: 7.0,
+    },
+    {
+        pedido_id: 2,
+        produto_id: 4, // Combo Casal
+        quantidade: 1,
+        preco_unitario: 85.0,
+    },
+    {
+        pedido_id: 2,
+        produto_id: 5, // Suco de Laranja
+        quantidade: 1,
+        preco_unitario: 12.0,
+    },
+    {
+        pedido_id: 3,
+        produto_id: 1, // X-Burger
+        quantidade: 1,
+        preco_unitario: 35.9,
+    },
+    {
+        pedido_id: 3,
+        produto_id: 3, // Petit Gâteau
+        quantidade: 1,
+        preco_unitario: 22.5,
+    },
+    {
+        pedido_id: 3,
+        produto_id: 2, // Coca-Cola
+        quantidade: 1,
+        preco_unitario: 7.0,
+    },
+];
 async function main() {
     console.log('🌱 Iniciando seed...');
 

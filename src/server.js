@@ -2,6 +2,7 @@ import express from 'express';
 import 'dotenv/config';
 import clienteRoutes from './routes/clienteRoute.js';
 import produtosRoutes from './routes/produtoRoute.js';
+import itemRoutes from './routes/itemRoute.js'
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 // Rotas
 app.use('/api', clienteRoutes);
 app.use('/api', produtosRoutes);
+app.use('/api', itemRoutes)
 
 app.use((req, res) => {
     res.status(404).json({ error: 'Rota não encontrada' });
