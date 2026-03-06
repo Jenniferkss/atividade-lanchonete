@@ -17,15 +17,26 @@ export default class ProdutoModel {
         this.disponivel = disponivel;
     }
 
-    validarPreco() {
+    validar() {
+        if (!this.nome || this.nome.trim().length < 3) {
+            throw { status: 400, message: "O campo 'nome' é obrigatório (mínimo 3 caracteres)." };
+        }
+
+        if (this.descricao && this.descricao.length > 255) {
+            throw { status: 400, message: 'A descrição deve ter no máximo 255 caracteres.' };
+        }
+
         if (this.preco === null || this.preco === undefined || Number(this.preco) <= 0) {
             throw { status: 400, message: 'O preço deve ser maior que 0.' };
+        }
+
+        const precoStr = String(this.preco);
+        if (precoStr.includes('.') && precoStr.split('.')[1].length > 2) {
+            throw { status: 400, message: 'O preço deve ter no máximo 2 casas decimais.' };
         }
     }
 
     static async verificarVinculoPedidoAberto(produtoId) {
-        if (!prisma.pedido) return;
-
         const pedidoComProduto = await prisma.pedido.findFirst({
             where: {
                 status: 'ABERTO',
@@ -37,14 +48,14 @@ export default class ProdutoModel {
 
         if (pedidoComProduto) {
             throw {
-                status: 409,
+                status: 400,
                 message: 'Não é possível deletar um produto vinculado a um pedido ABERTO.',
             };
         }
     }
 
     async criar() {
-        this.validarPreco();
+        this.validar();
 
         return prisma.produto.create({
             data: {
@@ -58,7 +69,7 @@ export default class ProdutoModel {
     }
 
     async atualizar() {
-        this.validarPreco();
+        this.validar();
 
         return prisma.produto.update({
             where: { id: this.id },
