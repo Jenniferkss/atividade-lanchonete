@@ -1,14 +1,13 @@
-import { Router } from 'express';
-// Importando todas as funções do controller
+import express from 'express';
 import * as ClienteController from '../controllers/clienteController.js';
-import { authMiddleware } from '../utils/authMiddleware.js';
+import autenticarApiKey from '../utils/apiKey.js'
 
 const router = Router();
 
-router.use(authMiddleware);
+router.use(autenticarApiKey);
 
 router.post('/cliente', ClienteController.criarCliente);
-router.get('/cliente', ClienteController.listarClientes);
+router.get('/cliente',autenticarApiKey, ClienteController.listarClientes);
 router.get('/cliente/:id', ClienteController.buscarPorId);
 router.get('/cliente/:id/clima', ClienteController.getClimaCliente);
 router.put('/cliente/:id', ClienteController.atualizarCliente);
