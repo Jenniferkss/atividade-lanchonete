@@ -7,11 +7,11 @@ const router = Router();
 
 router.use(authMiddleware);
 
-router.post('/', ClienteController.criarCliente);
-router.get('/', ClienteController.listarClientes);
-router.get('/:id', ClienteController.buscarPorId);
-router.get('/:id/clima', ClienteController.getClimaCliente);
-router.put('/:id', ClienteController.atualizarCliente);
-router.delete('/:id', ClienteController.deletarCliente);
+router.post('/cliente', ClienteController.criarCliente);
+router.get('/cliente', ClienteController.listarClientes);
+router.get('/cliente/:id', ClienteController.buscarPorId);
+router.get('/cliente/:id/clima', ClienteController.getClimaCliente);
+router.put('/cliente/:id', ClienteController.atualizarCliente);
+router.delete('/cliente/:id', ClienteController.deletarCliente);
 
 export default router;
