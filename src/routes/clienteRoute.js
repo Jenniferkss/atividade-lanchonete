@@ -14,3 +14,5 @@ router.put('/cliente/:id', ClienteController.atualizarCliente);
 router.delete('/cliente/:id', ClienteController.deletarCliente);
 
 export default router;
+
+
