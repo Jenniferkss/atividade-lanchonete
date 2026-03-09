@@ -4,7 +4,7 @@ import autenticarApiKey from '../utils/apiKey.js'
 
 const router = Router();
 
-router.use(autenticarApiKey);
+router.use(autenticarA);
 
 router.post('/cliente', ClienteController.criarCliente);
 router.get('/cliente',autenticarApiKey, ClienteController.listarClientes);
