@@ -1,7 +1,6 @@
 import ClienteModel from '../models/clienteModel.js';
 import { getClimaByCidade } from '../utils/weatherService.js';
 
-// Funções auxiliares de validação
 function validarNome(nome) {
     if (!nome || nome.trim().length < 3) {
         throw { status: 400, message: "O campo 'nome' é obrigatório." };
